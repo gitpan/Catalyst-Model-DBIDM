@@ -14,11 +14,11 @@ Catalyst::Model::DBIDM - DBIx::DataModel model class
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -37,16 +37,16 @@ Create the DBIx::DataModel schema in MyApp/Schema.pm:
     MyApp::DM->Table(qw/ MyApp::DM::Department department dpt_id /);
     ...
 
-Notice that the DBIx::DataModel is MyApp:DM, not MyApp::Model::DM. It is usable
+Notice that the DBIx::DataModel schema is MyApp::DM, not MyApp::Model::DM. It is usable
 as a standalone schema, without the need for Catalyst. In fact, it does not
 even need to be in the MyApp namespace.
 
 =item 2
 
-To expose it to Catalyst as a model, create a DBIDM in MyApp/Model/DBIDM.pm:
+To expose it to Catalyst as a model, create a DM model in MyApp/Model/DM.pm:
 
     package MyApp::Model::DM;
-    use base Catalyst::Model::DBIDM;
+    use base qw/ Catalyst::Model::DBIDM /;
 
     use MyApp::Schema; # to create the classes MyApp::DM
 
@@ -83,12 +83,12 @@ database if need be).
 
 =item new
 
-Constructor. It creates C<ACCEPT_CONTEXT> for the C<MyApp::Model::DM> class and
-for pseudo-classes for each of its tables (C<MyApp::Model::DM::Employee>,
+Constructor. It creates an C<ACCEPT_CONTEXT> method for the C<MyApp::Model::DM> class and
+for pseudo-classes for each of the schema's tables (C<MyApp::Model::DM::Employee>,
 C<MyApp::Model::DM::Department>, etc.)
 
 This allows the Catalyst application to invoke C<< $c->model('DM::Employee') >>
-prior to calling C<< $c->model('DM') >> and still have it initialised properly.
+prior to calling C<< $c->model('DM') >> and still have the schema initialised properly.
 
 The C<ACCEPT_CONTEXT> methods invoke the connect_if_not() method before
 returning the Schema class name or the Table class name:
@@ -96,7 +96,7 @@ returning the Schema class name or the Table class name:
     $c->model('DM');            # "MyApp::DM"
     $c->model('DM::Employee');  # "MyApp::DM::Employee"
 
-The pseudo-classes names is elaborated as follow:
+The pseudo-classes name are elaborated as follows:
 
 =over 5
 
@@ -123,10 +123,10 @@ Table class name.
 
     # In MyApp::Schema
     DBIx::DataModel->Schema('MyApp::DM');
-    MyApp::Model->Table(qw/ Employee employee emp_id /);
+    MyApp::DM->Table(qw/ Employee employee emp_id /);
 
     # In MyApp::Model::DM
-    use base qw/ Catalyst::Model::DM /;
+    use base qw/ Catalyst::Model::DBIDM /;
     __PACKAGE__->config(
         schema_class => 'MyApp::DM',
         ...

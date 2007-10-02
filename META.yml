@@ -1,14 +1,20 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Catalyst-Model-DBIDM
-version:      0.01
-version_from: lib/Catalyst/Model/DBIDM.pm
-installdirs:  site
-requires:
-    Catalyst::Model:               0
-    DBI:                           0
-    DBIx::DataModel:               0
-    Test::More:                    0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.30_01
+---
+name: Catalyst-Model-DBIDM
+version: 0.02
+author:
+  - 'Cedric Bouvier <cbouvi@cpan.org>'
+abstract: DBIx::DataModel model class
+license: perl
+build_requires:
+  Catalyst::Model: 0
+  DBI: 0
+  DBIx::DataModel: 0
+  Test::More: 0
+provides:
+  Catalyst::Helper::Model::DBIDM:
+    file: lib/Catalyst/Helper/Model/DBIDM.pm
+    version: 0.01
+  Catalyst::Model::DBIDM:
+    file: lib/Catalyst/Model/DBIDM.pm
+    version: 0.02
+generated_by: Module::Build version 0.26
