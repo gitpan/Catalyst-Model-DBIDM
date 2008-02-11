@@ -1,6 +1,6 @@
 ---
 name: Catalyst-Model-DBIDM
-version: 0.02
+version: 0.03
 author:
   - 'Cedric Bouvier <cbouvi@cpan.org>'
 abstract: DBIx::DataModel model class
@@ -16,5 +16,5 @@ provides:
     version: 0.01
   Catalyst::Model::DBIDM:
     file: lib/Catalyst/Model/DBIDM.pm
-    version: 0.02
+    version: 0.03
 generated_by: Module::Build version 0.26

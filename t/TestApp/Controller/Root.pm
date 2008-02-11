@@ -43,14 +43,6 @@ sub model_got_dbh : Local {
     $c->res->body(ref $c->model('DM')->dbh);
 }
 
-=head2 end
-
-Attempt to render a view, if needed.
-
-=cut 
-
-sub end : ActionClass('RenderView') {}
-
 =head1 AUTHOR
 
 Cedric Bouvier,,,

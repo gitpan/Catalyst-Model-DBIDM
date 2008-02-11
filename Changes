@@ -1,5 +1,9 @@
 Revision history for Catalyst-Model-DBIDM
 
+0.03    Mon Feb 11 21:30:21 CET 2008
+        Removed a piece of auto-generated code in the test suite that had a
+        dependancy on Catalyst::Action::RenderView
+
 0.02    Tue Oct  2 20:04:51 CEST 2007
         Fixed way too many errors in the documentation
 
