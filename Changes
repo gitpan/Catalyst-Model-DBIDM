@@ -1,5 +1,9 @@
 Revision history for Catalyst-Model-DBIDM
 
+0.04    Wed Mar 18 20:54:19 CET 2009
+        A test was failing because of a compatibility-breaking change in
+        DBIx::DataModel 1.0
+
 0.03    Mon Feb 11 21:30:21 CET 2008
         Removed a piece of auto-generated code in the test suite that had a
         dependancy on Catalyst::Action::RenderView

@@ -66,7 +66,8 @@ L<DBIx::Class::Schema::Loader>, L<Catalyst::Model::DBIC::Schema>
 
 =head1 AUTHOR
 
-Brandon L Black, C<blblack@gmail.com>
+Cedric Bouvier C<cbouvi@gmail.com>, largely inspired by the works of Brandon L
+Black, C<blblack@gmail.com>
 
 =head1 LICENSE
 

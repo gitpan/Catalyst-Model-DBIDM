@@ -9,7 +9,7 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/Catalyst/Model/DBIDM.pm',
     build_requires => {
         'Test::More'      => 0,
-        'DBIx::DataModel' => 0,
+        'DBIx::DataModel' => 1.0,
         'DBI'             => 0,
         'Catalyst::Model' => 0,
     },

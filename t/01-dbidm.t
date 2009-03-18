@@ -18,4 +18,4 @@ $content = get('/model/DM%3A%3AEmployee');
 is($content, 'TestApp::DM::Employee');
 
 $content = get('/model/DM%3A%3ADepartment');
-is($content, 'Department');
+is($content, 'TestApp::DM::Department');
